@@ -2,7 +2,10 @@ package com.example.native_android_java;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,20 +18,74 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
+    TextView textView;
     ArrayList<itemModel> arrayList;
+    int n = 100000;
+    int j = 0;
+    int[] primes = new int[n];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.listView);
+        textView = findViewById(R.id.textView);
+        //listView = findViewById(R.id.listView);
 
-        arrayList = new ArrayList<>();
-        new fetchData().execute();
+        final Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                j = 0;
+                primes = new int[n];
+                textView.setText("");
+                long startTime = System.currentTimeMillis();
+                for (int i = 0; i < n; i++) {
+                    boolean foundPrime = false;
+                    while (!foundPrime) {
+                        j++;
+                        if(isPrime(j)) {
+                            primes[i] = j;
+                            foundPrime = true;
+                        }
+                    }
+                }
+                long stopTime = System.currentTimeMillis();
+
+                textView.append("calculated " + n + " primes in " + (stopTime - startTime) + " milliseconds\n\n" +  Arrays.toString(primes));
+            }
+        });
+
+        // arrayList = new ArrayList<>();
+        // new fetchData().execute();
+    }
+
+    static boolean isPrime(int n)
+    {
+
+        // Check if number is less than
+        // equal to 1
+        if (n <= 1)
+            return false;
+
+            // Check if number is 2
+        else if (n == 2)
+            return true;
+
+            // Check if n is a multiple of 2
+        else if (n % 2 == 0)
+            return false;
+
+        // If not, then just check the odds
+        for (int i = 3; i <= Math.sqrt(n); i += 2)
+        {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
     }
 
     public class fetchData extends AsyncTask<String, String, String> {
@@ -78,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 for (int i = 0; i < array.length(); i++) {
-
+//
                     JSONObject jsonObject = array.getJSONObject(i);
                     String title = jsonObject.getString("title");
 //                    String id = jsonObject.getString("id");

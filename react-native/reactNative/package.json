@@ -10,6 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "big-integer": "^1.6.48",
+    "mathjs": "^9.4.4",
+    "performance-now": "^2.1.0",
     "react": "17.0.1",
     "react-native": "0.64.2"
   },

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import now from 'performance-now';
 
-import { StyleSheet, Text, Button, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, Button, ScrollView } from 'react-native';
 
 const NumericalCalculationsView = () => {
   const [todos, setTodos] = useState([]);
@@ -63,7 +63,6 @@ const NumericalCalculationsView = () => {
           renderItem={({item}) => <Text style={styles.item}>{item.title}</Text>}
         />
       </View> */}
-      <ActivityIndicator size="large" />
       <Button onPress={() => calcNPrimes(N)} title={'START TEST'} />
       {/* <Button onPress={() => clearState()} title={'Clear'} /> */}
       <ScrollView>

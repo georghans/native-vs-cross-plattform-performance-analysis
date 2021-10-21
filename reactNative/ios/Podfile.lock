@@ -269,6 +269,8 @@ PODS:
     - React-cxxreact (= 0.64.2)
     - React-jsi (= 0.64.2)
     - React-perflogger (= 0.64.2)
+  - RNDefaultPreference (1.4.3):
+    - React
   - RNScreens (3.6.0):
     - React-Core
     - React-RCTImage
@@ -305,6 +307,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNDefaultPreference (from `../node_modules/react-native-default-preference`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -369,6 +372,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNDefaultPreference:
+    :path: "../node_modules/react-native-default-preference"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -404,6 +409,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 24600e3b1aaa77126989bc58b6747509a1ba14f3
   React-runtimeexecutor: a9904c6d0218fb9f8b19d6dd88607225927668f9
   ReactCommon: 149906e01aa51142707a10665185db879898e966
+  RNDefaultPreference: 2f8d6d54230edbd78708ada8d63bb275e5a8415b
   RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
   Yoga: 575c581c63e0d35c9a83f4b46d01d63abc1100ac
 
